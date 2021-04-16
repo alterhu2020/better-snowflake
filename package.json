@@ -1,0 +1,26 @@
+{
+  "name": "better-snowflake",
+  "version": "1.0.0",
+  "description": "A simple and quick snowflake libary, better performance and effective.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'test'"
+  },
+  "keywords": [
+    "snowflake",
+    "random number",
+    "random",
+    "guid",
+    "uuid"
+  ],
+  "author": "Walter Hu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alterhu2020/better-snowflake/issues"
+  },
+  "homepage": "https://github.com/alterhu2020/better-snowflake#readme",
+  "repository": {
+    "type": "git",
+    "url":  "git@github.com:alterhu2020/better-snowflake.git"
+  }
+}
