@@ -1,6 +1,6 @@
 {
   "name": "better-snowflake",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "A simple and quick snowflake libary, better performance and effective.",
   "main": "index.js",
   "files": ["index.js"],

@@ -1,7 +1,7 @@
 /**
  * How to use, for example:
- *
- * import snowflake from 'better-snowflake'
+ * const {Snowflake} = require('better-snowflake')
+ * import {Snowflake} from 'better-snowflake'
  * const worker_id=3, datacenter_id=7
  * const idWorker = new Snowflake(worker_id, datacenter_id)
  *
@@ -45,7 +45,7 @@
  * @param datacenterId 数据标识ID (0~31)
  */
 
-class Snowflake {
+export class Snowflake {
     constructor(_workerId, _dataCenterId) {
         /** 开始时间截 ：2019-12-20 13:52:35 */
         this.twepoch = 1576821155667n
@@ -195,6 +195,3 @@ class Snowflake {
     }
 
 }
-
-// console.log(new Snowflake(1n, 1n).nextId());
-export default Snowflake
