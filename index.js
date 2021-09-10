@@ -1,14 +1,13 @@
-
 /**
  * How to use, for example:
- * 
- * const snowflake=require('better-snowflake')
+ *
+ * import snowflake from 'better-snowflake'
  * const worker_id=3, datacenter_id=7
  * const idWorker = new Snowflake(worker_id, datacenter_id)
- * 
+ *
  * const uuid = idWorker.nextId()
  * console.log(uuid)
- * 
+ *
  */
 
 /**
@@ -46,8 +45,8 @@
  * @param datacenterId 数据标识ID (0~31)
  */
 
-const Snowflake = (function () {
-    function Snowflake(_workerId, _dataCenterId) {
+class Snowflake {
+    constructor(_workerId, _dataCenterId) {
         /** 开始时间截 ：2019-12-20 13:52:35 */
         this.twepoch = 1576821155667n
 
@@ -126,12 +125,13 @@ const Snowflake = (function () {
             throw new Error(`dataCenterId must max than 0 and small than maxDataCenterId ${this.maxDataCenterId}`)
         }
     }
+
     // ==============================Methods==========================================
     /**
      * 获得下一个ID (该方法是线程安全的)
      * @return SnowflakeId
      */
-    Snowflake.prototype.nextId = function () {
+    nextId() {
         let timestamp = this.timeGen()
 
         // 如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常
@@ -178,7 +178,7 @@ const Snowflake = (function () {
      * @param lastTimestamp 上次生成ID的时间截
      * @return 当前时间戳
      */
-    Snowflake.prototype.tilNextMillis = function (lastTimestamp) {
+    tilNextMillis(lastTimestamp) {
         let timestamp = this.timeGen()
         while (timestamp <= lastTimestamp) {
             timestamp = this.timeGen()
@@ -190,11 +190,11 @@ const Snowflake = (function () {
      * 返回以毫秒为单位的当前时间
      * @return 当前时间(毫秒)
      */
-    Snowflake.prototype.timeGen = function () {
+    timeGen() {
         return BigInt(Date.now())
     }
 
-    return Snowflake
-}())
+}
+
 // console.log(new Snowflake(1n, 1n).nextId());
-module.exports = Snowflake
+export default Snowflake
